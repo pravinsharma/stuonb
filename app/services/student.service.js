@@ -1,9 +1,9 @@
-const Student = require('../models/student.schema');
-var { errmsg } = require('./app/utils/constants');
+const Student = require('../models/schema/student.schema');
+var { errmsg } = require('../utils/constants');
 
 const studentService = {
     create: (fname, lname, email, passwd, roll, age, address, courseid) => {
-        if(!(student.email && student.passwd)) {
+        if(!(email && passwd)) {
             return new Error(errmsg.e100);
         }
 
@@ -26,6 +26,11 @@ const studentService = {
             .catch(err => err);
     },
     findOne: (id) => {
+        // Validate Request
+        if(!id) {
+            return new Error(errmsg.e100);
+        }
+        
         // Retrieve and return all students from the database.
         return Student.findById(id)
             .then(data => data)
@@ -47,6 +52,11 @@ const studentService = {
         .catch(err => err);
     },
     delete: (id) => {
+        // Validate Request
+        if(!id) {
+            return new Error(errmsg.e100);
+        }
+
         return Student.findByIdAndRemove(id)
         .then(student => student)
         .catch(err => err);

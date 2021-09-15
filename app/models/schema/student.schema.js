@@ -1,5 +1,5 @@
-var mongoose = require('../utils/mongo_connection');
-const refHelper = require('../utils/reference.helper');
+var mongoose = require('../../utils/mongo_connection');
+const refHelper = require('../../utils/reference.helper');
 
 var StudentSchema = new mongoose.Schema({
 	id: { type: String },

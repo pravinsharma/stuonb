@@ -1,4 +1,4 @@
-const Session = require('../models/session.schema');
+const Session = require('../models/schema/session.schema');
 
 // Register user
 exports.register = (req, res) => {
