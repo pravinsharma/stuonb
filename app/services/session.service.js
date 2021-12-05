@@ -13,13 +13,17 @@ const sessionService = {
         });
 
         // Save Session in the database
-        return session.save()
-            .then(data => data)
-            .catch(err => err);
+        return session.save();
     },
     findAll: () => {
         // Retrieve and return all sessions from the database.
         return Session.find()
+            .then(data => data)
+            .catch(err => err);
+    },
+    findLatestByUserid: (userid) => {
+        // Retrieve and return all sessions from the database.
+        return Session.find({ 'userid': userid }).limit(1).sort('-createdAt')
             .then(data => data)
             .catch(err => err);
     },

@@ -6,6 +6,7 @@ var { server } = require('./app/utils/constants');
 const routeCourse = require('./app/routes/course.route');
 const routeStudent = require('./app/routes/student.route');
 const routeSession = require('./app/routes/session.route');
+const routeLogin = require('./app/routes/login.route');
 
 const app=express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/api/courses', routeCourse);
 app.use('/api/students', routeStudent);
+app.use('/api/auth', routeLogin);
 app.use('/api/sessions', routeSession);
 
 const PORT = server.port || 3000;

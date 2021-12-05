@@ -7,7 +7,7 @@ module.exports = {
     },
     token: {
         key: "9fydQb3yFz7@",
-        expiresIn: "8h"
+        expiresIn: "2m"
     },
     errmsg: {
         e100: "Data is missing..."

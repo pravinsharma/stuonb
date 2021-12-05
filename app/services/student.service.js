@@ -36,6 +36,17 @@ const studentService = {
             .then(data => data)
             .catch(err => err);
     },
+    findByEmail: (email) => {
+        // Validate Request
+        if(!email) {
+            return new Error(errmsg.e100);
+        }
+        
+        // Retrieve and return all students from the database.
+        return Student.findOne({ email }).exec()
+            .then(data => data)
+            .catch(err => err);
+    },
     update: (id, fname, lname, email, passwd, roll, age, address, courseid) => {
         // Validate Request
         if(!id) {

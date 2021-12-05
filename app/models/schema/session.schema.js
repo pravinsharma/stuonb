@@ -1,5 +1,6 @@
 var mongoose = require('../../utils/mongo_connection');
 const refHelper = require('../../utils/reference.helper');
+var { token } = require('../../utils/constants');
 
 var SessionSchema = new mongoose.Schema({
 	id: { type: String },
@@ -14,7 +15,7 @@ var SessionSchema = new mongoose.Schema({
 		}
 	},
 	token: { type: String, required: true },
-	expires: { type: Number, default: 28800000 }
+	expiresIn: { type: String, default: token.expiresIn }
 }, {
     timestamps: true
 });
