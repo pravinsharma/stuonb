@@ -18,9 +18,12 @@ app.use(
 
 app.use(express.json());
 
+/* public facing APIs */
 app.use('/api/courses', routeCourse);
 app.use('/api/students', routeStudent);
 app.use('/api/auth', routeLogin);
+
+/* internal APIs */
 app.use('/api/sessions', routeSession);
 
 const PORT = server.port || 3000;

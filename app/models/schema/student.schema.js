@@ -1,3 +1,4 @@
+const { Schema } = require('mongoose');
 var mongoose = require('../../utils/mongo_connection');
 const refHelper = require('../../utils/reference.helper');
 
@@ -10,16 +11,15 @@ var StudentSchema = new mongoose.Schema({
 	roll: { type: String },
 	age: { type: Number },
 	address: { type: String },
-	courseid: {
-		type: String,
-		required: true,
+	courseids: [{
+		type: Schema.Types.ObjectId,
 		ref: "Courses",
 		validate: {
 			isAsync: true,
 			validator: (v) =>refHelper(mongoose.model("course"), v),
 			message: `Course doesn't exist...`
 		}
-	}
+	}]
 }, {
     timestamps: true
 });

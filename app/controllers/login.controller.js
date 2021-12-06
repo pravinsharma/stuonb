@@ -1,7 +1,6 @@
 const studentService = require('../services/student.service');
 const sessionService = require('../services/session.service');
 const utilToken = require('../utils/jwt');
-var { token } = require('../utils/constants');
 
 // Register user
 exports.register = (req, res) => {
@@ -13,7 +12,7 @@ exports.register = (req, res) => {
 };
 
 // Create/Save a new Session
-exports.login = (req, res) => {console.log('in login...', req.body);
+exports.login = (req, res) => {
     if(!req.body.username || !req.body.password) {
         return res.status(400).send({
             message: "Required params missing..."

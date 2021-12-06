@@ -11,7 +11,7 @@ exports.create = (req, res) => {
         req.body.roll,
         req.body.age,
         req.body.address,
-        req.body.courseid)
+        req.body.courseids)
     .then(data => {
         res.send(data);
     }).catch(err => {
@@ -59,7 +59,7 @@ exports.update = (req, res) => {
         req.body.roll,
         req.body.age,
         req.body.address,
-        req.body.courseid)
+        req.body.courseids)
     .then(data => {
         res.send(data);
     }).catch(err => {

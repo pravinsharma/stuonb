@@ -7,6 +7,6 @@ const logins = require('../controllers/login.controller');
 router.post('/signup', logins.register);
 
 // Retrieve all Student
-router.get('/signin', logins.login);
+router.post('/signin', logins.login);
 
 module.exports = router;

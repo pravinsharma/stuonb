@@ -1,5 +1,4 @@
 var log = {
-
     "switch": {      // add capability switches
         "info":  true,
         "debug": true,
